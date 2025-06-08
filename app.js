@@ -14,7 +14,9 @@ const taskRouter = require('./Routers/taskRouter');
 app.use('/tasks', taskRouter);
 const logRouter = require('./Routers/logRouter');
 app.use('/logRouter', logRouter);
-
+app.get('/', (req, res) => {
+    res.redirect('/tasks');
+});
 app.get('*', function (req, res) {
     res.send('Sorry, this is an invalid URL.');
 });
