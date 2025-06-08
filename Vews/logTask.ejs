@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Display</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background-color: #1e1e2e;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            font-weight: bold;
+            background: linear-gradient(to right, #ff8c00, #ff3b3b);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .log-container {
+            width: 85%;
+            max-width: 800px;
+            background-color: #282a36;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background-color: #44475a;
+            margin: 8px 0;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+            font-size: 1.1em;
+            transition: background 0.3s ease;
+        }
+
+        li:hover {
+            background-color: #6272a4;
+        }
+
+        li span {
+            font-weight: bold;
+            color: #50fa7b;
+            margin-right: 10px;
+        }
+
+        .no-logs {
+            text-align: center;
+            color: #bd93f9;
+            font-style: italic;
+            font-size: 1.2em;
+        }
+
+        .btn-delete {
+            background-color: #ff5555;
+            color: white;
+            font-size: 1.1em;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+            border: none;
+            font-weight: bold;
+        }
+
+        .btn-delete:hover {
+            background-color: #ff2222;
+        }
+    </style>
+</head>
+<body>
+    <h1>Log File Display</h1>
+
+    <div class="log-container">
+        <ul>
+            <% if (!logLines || logLines.trim() === '') { %>
+                <li class="no-logs">No logs available</li>
+            <% } else { %>
+                <% logLines.split('\n').filter(line => line.trim() !== '').forEach((line, index) => { %>
+                    <li>
+                        <span><%= index + 1 %>.</span>
+                        <%= line %>
+                    </li>
+                <% }); %>
+            <% } %>
+        </ul>
+    </div>
+
+    <button class="btn-delete" onclick="window.location.href='/logRouter/deleteLogTask'">Delete Logs</button>
+
+</body>
+</html>

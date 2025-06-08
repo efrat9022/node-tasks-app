@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #ff4d6d;
+        }
+        .add-task-btn {
+            display: block;
+            width: 200px;
+            margin: 15px auto;
+            padding: 12px;
+            background: #ff4d6d;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .add-task-btn:hover {
+            background: #e63950;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 14px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background: #ff4d6d;
+            color: white;
+        }
+        .task-id {
+            font-weight: bold;
+            color: #333;
+        }
+        .btn {
+            border: none;
+            padding: 10px 14px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .btn-complete {
+            background: #28c76f;
+        }
+        .btn-complete:hover {
+            background: #21a65a;
+        }
+        .btn-delete {
+            background: #e63950;
+        }
+        .btn-delete:hover {
+            background: #c82333;
+        }
+        .completed {
+            background: gray;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📝 Task Manager</h1>
+        <a class="add-task-btn" href="/tasks/addTask">➕ Add Task</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Task</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% tasks.forEach(task => { %>
+                    <tr>
+                        <td class="task-id"><%= task.id %></td>
+                        <td><%= task.title %></td>
+                        <td>
+                            <form action="/tasks/<%= task.id %>?_method=PUT" method="POST">
+                                <button class="btn btn-complete <%= task.status === 'completed' ? 'completed' : '' %>" type="submit" <%= task.status === 'completed' ? 'disabled' : '' %>>
+                                    <%= task.status === 'completed' ? '✅ Completed' : '✔ Mark as Complete' %>
+                                </button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/tasks/<%= task.id %>?_method=DELETE" method="POST">
+                                <button class="btn btn-delete" type="submit">🗑 Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
