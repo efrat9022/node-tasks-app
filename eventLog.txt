@@ -4,3 +4,15 @@
 2025-06-08T15:52:22.026Z - Added Task: { ID: 36, Title: משימה-חדשה, Status: not completed}
 2025-06-08T15:52:27.887Z - Updated Task: { ID: 36, Title: undefined, Status: completed}
 2025-06-08T15:52:30.561Z - Deleted Task: { ID: 31, Title: undefined, Status: undefined}
+2025-06-08T17:49:14.298Z - Added Task: { ID: 37, Title: לשטוף כלים, Status: not completed}
+2025-06-08T17:49:25.106Z - Added Task: { ID: 38, Title: חוג אנגלית, Status: not completed}
+2025-06-08T17:49:28.961Z - Deleted Task: { ID: 27, Title: undefined, Status: undefined}
+2025-06-08T17:49:32.215Z - Deleted Task: { ID: 33, Title: undefined, Status: undefined}
+2025-06-08T17:49:42.392Z - Added Task: { ID: 39, Title: כביסה, Status: not completed}
+2025-06-08T17:49:46.374Z - Deleted Task: { ID: 39, Title: undefined, Status: undefined}
+2025-06-08T17:49:53.600Z - Added Task: { ID: 40, Title: כביסה, Status: not completed}
+2025-06-08T17:50:00.147Z - Deleted Task: { ID: 40, Title: undefined, Status: undefined}
+2025-06-08T17:50:08.476Z - Added Task: { ID: 41, Title: כביסה, Status: not completed}
+2025-06-08T17:50:19.349Z - Updated Task: { ID: 41, Title: undefined, Status: completed}
+2025-06-08T17:50:27.977Z - Deleted Task: { ID: 32, Title: undefined, Status: undefined}
+2025-06-08T17:50:46.996Z - Added Task: { ID: 42, Title: ללמוד למבחן, Status: not completed}
